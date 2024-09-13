@@ -1,12 +1,12 @@
 # Heros & AG-Grid Study
 
-* 專案文件下載後請移至專案目錄安裝npm，輸入以下指令：
+* 專案文件下載後請移至專案目錄並安裝套件，請輸入以下指令：
 
   ```
   npm install
   ```
 
-* 開啟angular server
+* 開啟angular server指令：
   
   ```
   ng serve --open

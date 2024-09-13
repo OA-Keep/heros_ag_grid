@@ -1,0 +1,36 @@
+<form [formGroup]="registerForm">
+  <div>
+    <mat-form-field>
+      <mat-label>Hero Name:</mat-label>
+      <input required="true" formControlName="heroName" name="heroName" matInput id="new-hero" #heroName />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Hero Level:</mat-label>
+      <mat-select formControlName="heroLevel" name="heroLevel" #heroLevel>
+        <mat-option *ngFor="let item of levelSel" [value]="item">{{ item }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Hero Birthday:</mat-label>
+      <input matInput [matDatepicker]="picker" id="new-birthday" #heroBirthday [formControl]="birthday"
+        formControlName="birthday" name="birthday">
+      <mat-hint>YYYY-MM-DD</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <br>
+  <div>
+    <!-- 使用registerForm.valid 來判定按鈕是否可按 -->
+    <button mat-flat-button type="button" class="add-button" [disabled]="!registerForm.valid"
+      (click)="add(heroName.value, heroLevel.value, heroBirthday.value); heroName.value=''; heroLevel.value='';heroBirthday.value=''">
+      Add hero
+    </button>
+  </div>
+</form>
+<br>
